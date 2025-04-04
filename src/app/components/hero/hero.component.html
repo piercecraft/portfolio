@@ -3,102 +3,53 @@
     <!-- Add this container div -->
     <div class="hero-content">
       <h1 class="hero-title">
-        <span class="title-line">Thomas Pierce</span>
-        <span class="title-line accent">Senior Front-End Developer</span>
-        <span class="subtitle"
-          >Building Performant, User-Focused Web Applications</span
-        >
+        <span class="title-line">{{ name() }}</span>
+        <span class="title-line accent">{{ title() }}</span>
+        <span class="subtitle">{{ subtitle() }}</span>
       </h1>
 
       <div class="intro-section">
+        @for (line of intro(); track $index) {
         <p class="intro-text">
-          I am a Senior Front-End Developer with extensive experience in Angular
-          (AngularJS to Angular 19), React, and Vue.js. I am passionate about
-          creating efficient, maintainable applications that provide exceptional
-          user experiences.
+          {{ line }}
         </p>
-        <p class="intro-text">
-          My focus is on delivering performant and user-friendly applications. I
-          have a broad understanding of front-end technologies and a strong
-          commitment to building solutions that scale.
-        </p>
+        }
       </div>
 
       <div class="skills-section">
-        <h2 class="section-title">Summary of Skills</h2>
+        <h2 class="section-title">{{ skillTitle() }}</h2>
+        @for (line of skills(); track $index) {
         <p class="skills-text">
-          My core front-end skills include Angular, TypeScript, React, and
-          Vue.js, along with state management libraries like NgRx, Redux, and
-          Zustand. I am proficient in modern JavaScript (ES6+), CSS3, Sass/Less,
-          Responsive Design, and Accessibility (WCAG).
+          {{ line }}
         </p>
-        <p class="skills-text">
-          I also have experience with back-end technologies such as Node.js,
-          Next.js, API development (REST, GraphQL), database interaction
-          (PostgreSQL, MongoDB), and cloud platforms (AWS).
-        </p>
-        <p class="skills-text">
-          I am dedicated to clean code principles (SOLID, DRY, YAGNI, KISS), web
-          performance optimization, and utilizing tools like Git, Docker, and
-          CI/CD pipelines to ensure efficient development workflows.
-        </p>
+        }
       </div>
 
       <div class="career-section">
-        <h2 class="section-title">Brief Career Overview</h2>
+        <h2 class="section-title">{{ careerTitle() }}</h2>
         <p class="career-text">
-          As a Full-Stack Architect with decades of experience, I've specialized
-          in transforming legacy systems into modern, scalable solutions across
-          healthcare, enterprise software, and cloud platforms. My career
-          highlights include:
+          {{ careerIntro() }}
         </p>
         <div class="career-text">
           <ul>
+            <!-- for going here -->
+            @for (bullet of careerBullets(); track $index) { @if (typeof bullet
+            === 'string') {
             <li>
-              Led the complete modernization of Anju Software's eClinical Suite,
-              reverse-engineering a mission-critical Java/JSP EDC system into a
-              .NET/Angular platform while maintaining 100% functionality during
-              transition, preserving $10M+ in annual support contracts.
+              {{ bullet }}
             </li>
+            } @else if (typeof bullet === 'object') {
             <li>
-              Architected Citrix NFuse's web interface (Crossroads A-List Award
-              winner) and rebuilt Citrix's global support portal, reducing
-              support calls by 40% through innovative self-service tools and
-              partner portal integration.
-            </li>
-            <li>
-              Spearheaded the AutoEncoder medical coding system's transformation
-              into a standalone Angular/.NET API product, increasing user coding
-              speed by 38% and creating new revenue streams.
-            </li>
-            <li>
-              Successfully delivered multiple enterprise-grade applications
-              under tight deadlines, including:
+              {{ bullet[0] }}
               <ul>
-                <li>AWS cloud migrations with serverless components</li>
+                @for (subbullet of bullet; track $index) { @if ($index>0) {
                 <li>
-                  Clinical trial systems (EDC, CDM, eCRF) compliant with 21 CFR
-                  Part 11
+                  {{ subbullet }}
                 </li>
-                <li>
-                  Complex medical dictionary integrations (WHODrug/MedDRA)
-                </li>
+                } }
               </ul>
             </li>
-            <li>
-              Recognized for technical leadership in:
-              <ul>
-                <li>
-                  Legacy system modernization (Java-to-.NET,
-                  monolithic-to-microservices)
-                </li>
-                <li>
-                  Cross-platform compatibility solutions (Windows/Java/UNIX via
-                  Citrix ICA protocol)
-                </li>
-                <li>UI/UX standardization across product suites</li>
-              </ul>
-            </li>
+            } }
           </ul>
         </div>
         <p class="career-text">

@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header-container">
-    <a routerLink="/about" class="logo">Thomas Pierce</a>
-
+    <a routerLink="/about" class="logo">{{ name() }}</a>
+    <app-theme-toggle></app-theme-toggle>
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
       <ul>
@@ -55,6 +55,14 @@
           routerLinkActive="active"
           (click)="closeMenu()"
           >Projects</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/portfolio"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          >Portfolio</a
         >
       </li>
       <li>

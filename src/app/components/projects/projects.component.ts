@@ -8,7 +8,7 @@ import { AsyncPipe } from '@angular/common';
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
-  imports: [ProjectItemComponent, AsyncPipe] // Only what's needed
+  imports: [ProjectItemComponent, AsyncPipe]
 })
 export class ProjectsComponent {
   private projectService = inject(ProjectService);

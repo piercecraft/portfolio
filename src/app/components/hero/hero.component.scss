@@ -4,7 +4,7 @@
     padding: 2rem 0;
   
     @media (min-width: 768px) {
-      padding: 4rem 0;
+      padding: 4rem 0 4rem 1rem;
     }
   
     /* Remove all width/position overrides */
@@ -59,7 +59,7 @@
       font-size: 1.25rem;
       font-weight: 400;
       color: var(--text-secondary);
-      max-width: 36ch;
+      // max-width: 36ch;
       line-height: 1.5;
       
       @media (min-width: 768px) {
