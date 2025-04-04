@@ -53,23 +53,20 @@
           </ul>
         </div>
         <p class="career-text">
-          My technical versatility spans Angular 2-19, React, .NET Core, and
-          cloud architectures, complemented by proven abilities to:
+          {{ careerIntro2() }}
         </p>
         <div class="career-text">
           <ul>
-            <li>Mentor teams through technology transitions</li>
-            <li>Communicate complex technical concepts to executives</li>
-            <li>Balance innovation with regulatory requirements</li>
-            <li>Rescue troubled projects through hands-on leadership</li>
+            @for (bullet of careerBullets2(); track $index) {
+            <li>{{ bullet }}</li>
+            }
           </ul>
         </div>
       </div>
 
       <div class="cta-section">
         <p class="cta-text">
-          Explore my projects below to see examples of my work, or contact me to
-          discuss how I can contribute to your team.
+          {{ careerOutro() }}
         </p>
         <div class="cta-buttons">
           <a

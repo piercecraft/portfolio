@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter, Routes } from '@angular/router';
+import { provideRouter, Routes, withInMemoryScrolling } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { HeroComponent } from './components/hero/hero.component';
 import { SkillsComponent } from './components/skills/skills.component';
@@ -9,15 +9,19 @@ import { ContactComponent } from './components/contact/contact.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
-  { path: 'about', component: HeroComponent },
+  { path: 'home', component: HeroComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'projects', component: ProjectsComponent },
-  { path: 'portfolio', component: PortfolioComponent},
+  { path: 'about', component: PortfolioComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '', redirectTo: '/about', pathMatch: 'full' },
-  { path: '**', redirectTo: '/about' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' },
 ];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimations(), provideHttpClient()],
+  providers: [
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })), // Correct usage
+    provideAnimations(),
+    provideHttpClient(),
+  ],
 };

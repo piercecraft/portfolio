@@ -66,5 +66,25 @@
         "UI/UX standardization across product suites"
       ]
     ]
+  },
+  {
+    "id": 10,
+    "prop": "careerIntro2",
+    "text": "My technical versatility spans Angular 2-19, React, .NET Core, and cloud architectures, complemented by proven abilities to:"
+  },
+  {
+    "id": 11,
+    "prop": "careerBullets2",
+    "text": [
+      "Mentor teams through technology transitions",
+      "Communicate complex technical concepts to executives",
+      "Balance innovation with regulatory requirements",
+      "Rescue troubled projects through hands-on leadership"
+    ]
+  },
+  {
+    "id": 12,
+    "prop": "careerOutro",
+    "text": "Explore my projects below to see examples of my work, or contact me to discuss how I can contribute to your team."
   }
 ]
